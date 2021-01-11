@@ -1,0 +1,1 @@
+# exomind-tech-assessment
