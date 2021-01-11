@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		3FEB2B7025AC8C3D0000575D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB2B6E25AC8C3D0000575D /* LaunchScreen.storyboard */; };
 		3FEB2B7B25AC8C3D0000575D /* ExomindTechAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B7A25AC8C3D0000575D /* ExomindTechAssessmentTests.swift */; };
 		3FEB2B8625AC8C3D0000575D /* ExomindTechAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B8525AC8C3D0000575D /* ExomindTechAssessmentUITests.swift */; };
+		67F5EC1EBBB1B288FCC41DB6 /* Pods_ExomindTechAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B613430F820B290A6E3A79F1 /* Pods_ExomindTechAssessment.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,9 @@
 		3FEB2B8125AC8C3D0000575D /* ExomindTechAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExomindTechAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FEB2B8525AC8C3D0000575D /* ExomindTechAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExomindTechAssessmentUITests.swift; sourceTree = "<group>"; };
 		3FEB2B8725AC8C3D0000575D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B613430F820B290A6E3A79F1 /* Pods_ExomindTechAssessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExomindTechAssessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6935C13A51EE802E765F2C3 /* Pods-ExomindTechAssessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExomindTechAssessment.debug.xcconfig"; path = "Target Support Files/Pods-ExomindTechAssessment/Pods-ExomindTechAssessment.debug.xcconfig"; sourceTree = "<group>"; };
+		D6E16C655FA33E6A0935C91F /* Pods-ExomindTechAssessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExomindTechAssessment.release.xcconfig"; path = "Target Support Files/Pods-ExomindTechAssessment/Pods-ExomindTechAssessment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67F5EC1EBBB1B288FCC41DB6 /* Pods_ExomindTechAssessment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,8 @@
 				3FEB2B7925AC8C3D0000575D /* ExomindTechAssessmentTests */,
 				3FEB2B8425AC8C3D0000575D /* ExomindTechAssessmentUITests */,
 				3FEB2B5E25AC8C3B0000575D /* Products */,
+				E5BE8396CABF222341028968 /* Pods */,
+				C32DCF5F2B9B96D025678A7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +138,23 @@
 			path = ExomindTechAssessmentUITests;
 			sourceTree = "<group>";
 		};
+		C32DCF5F2B9B96D025678A7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B613430F820B290A6E3A79F1 /* Pods_ExomindTechAssessment.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5BE8396CABF222341028968 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6935C13A51EE802E765F2C3 /* Pods-ExomindTechAssessment.debug.xcconfig */,
+				D6E16C655FA33E6A0935C91F /* Pods-ExomindTechAssessment.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FEB2B8A25AC8C3D0000575D /* Build configuration list for PBXNativeTarget "ExomindTechAssessment" */;
 			buildPhases = (
+				630F68DF52217E9B74C4EA19 /* [CP] Check Pods Manifest.lock */,
 				3FEB2B5925AC8C3B0000575D /* Sources */,
 				3FEB2B5A25AC8C3B0000575D /* Frameworks */,
 				3FEB2B5B25AC8C3B0000575D /* Resources */,
+				75DF203296E59C6AA3D5B8A7 /* [CP] Embed Pods Frameworks */,
+				3FEB2B9F25AC92FB0000575D /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -255,6 +282,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FEB2B9F25AC92FB0000575D /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		630F68DF52217E9B74C4EA19 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExomindTechAssessment-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75DF203296E59C6AA3D5B8A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExomindTechAssessment/Pods-ExomindTechAssessment-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ExomindTechAssessment/Pods-ExomindTechAssessment-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ExomindTechAssessment/Pods-ExomindTechAssessment-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3FEB2B5925AC8C3B0000575D /* Sources */ = {
@@ -437,6 +524,7 @@
 		};
 		3FEB2B8B25AC8C3D0000575D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6935C13A51EE802E765F2C3 /* Pods-ExomindTechAssessment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -456,6 +544,7 @@
 		};
 		3FEB2B8C25AC8C3D0000575D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6E16C655FA33E6A0935C91F /* Pods-ExomindTechAssessment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
