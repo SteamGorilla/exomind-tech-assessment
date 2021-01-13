@@ -1,0 +1,25 @@
+//
+//  UIView.swift
+//  ExomindTechAssessment
+//
+//  Created by Jeremy Papay on 14/01/2021.
+//
+
+import UIKit
+
+extension UIView {
+    /// Set a shadow of the bounds of the view
+    /// - Parameters:
+    ///
+    ///   - color: The shadow color
+    ///   - opacity: The shadow opacity
+    ///   - offset: The shadow offset
+
+        func setShadow(color: UIColor = UIColor(named: "ColorShadow") ?? .label, opacity: Float = 0.2, offset: CGSize = .zero, radius: CGFloat = 5) {
+            layer.shadowColor = color.cgColor
+            layer.shadowOpacity = opacity
+            layer.shadowOffset = offset
+            layer.shadowRadius = radius
+            layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
+        }
+}
