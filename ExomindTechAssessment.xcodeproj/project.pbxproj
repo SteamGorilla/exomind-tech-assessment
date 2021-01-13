@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0F577925AFB541001ECFA7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F577825AFB541001ECFA7 /* UIView.swift */; };
 		3FEB2B6125AC8C3B0000575D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B6025AC8C3B0000575D /* AppDelegate.swift */; };
 		3FEB2B6325AC8C3B0000575D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B6225AC8C3B0000575D /* SceneDelegate.swift */; };
-		3FEB2B6525AC8C3B0000575D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B6425AC8C3B0000575D /* ViewController.swift */; };
 		3FEB2B6B25AC8C3B0000575D /* ExomindTechAssessment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B6925AC8C3B0000575D /* ExomindTechAssessment.xcdatamodeld */; };
 		3FEB2B6D25AC8C3D0000575D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB2B6C25AC8C3D0000575D /* Assets.xcassets */; };
 		3FEB2B7025AC8C3D0000575D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB2B6E25AC8C3D0000575D /* LaunchScreen.storyboard */; };
 		3FEB2B7B25AC8C3D0000575D /* ExomindTechAssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B7A25AC8C3D0000575D /* ExomindTechAssessmentTests.swift */; };
 		3FEB2B8625AC8C3D0000575D /* ExomindTechAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B8525AC8C3D0000575D /* ExomindTechAssessmentUITests.swift */; };
+		3FEB2BC925ADD4B70000575D /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2BC825ADD4B70000575D /* UsersListViewController.swift */; };
+		3FEB2BD025ADD7A10000575D /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2BCF25ADD7A10000575D /* UsersListViewModel.swift */; };
+		3FEB2BD625ADD8890000575D /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2BD525ADD8890000575D /* ApiService.swift */; };
+		3FEB2BDB25ADD96E0000575D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2BDA25ADD96E0000575D /* User.swift */; };
+		3FEB2BE025AF16560000575D /* Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2BDF25AF16560000575D /* Observers.swift */; };
+		3FEB2BED25AF439F0000575D /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2BEC25AF439F0000575D /* UserCollectionViewCell.swift */; };
 		67F5EC1EBBB1B288FCC41DB6 /* Pods_ExomindTechAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B613430F820B290A6E3A79F1 /* Pods_ExomindTechAssessment.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,10 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F0F577825AFB541001ECFA7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3FEB2B5D25AC8C3B0000575D /* ExomindTechAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExomindTechAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FEB2B6025AC8C3B0000575D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FEB2B6225AC8C3B0000575D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3FEB2B6425AC8C3B0000575D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3FEB2B6A25AC8C3B0000575D /* ExomindTechAssessment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExomindTechAssessment.xcdatamodel; sourceTree = "<group>"; };
 		3FEB2B6C25AC8C3D0000575D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FEB2B6F25AC8C3D0000575D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +56,12 @@
 		3FEB2B8125AC8C3D0000575D /* ExomindTechAssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExomindTechAssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FEB2B8525AC8C3D0000575D /* ExomindTechAssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExomindTechAssessmentUITests.swift; sourceTree = "<group>"; };
 		3FEB2B8725AC8C3D0000575D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FEB2BC825ADD4B70000575D /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
+		3FEB2BCF25ADD7A10000575D /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
+		3FEB2BD525ADD8890000575D /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		3FEB2BDA25ADD96E0000575D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3FEB2BDF25AF16560000575D /* Observers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observers.swift; sourceTree = "<group>"; };
+		3FEB2BEC25AF439F0000575D /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		B613430F820B290A6E3A79F1 /* Pods_ExomindTechAssessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExomindTechAssessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6935C13A51EE802E765F2C3 /* Pods-ExomindTechAssessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExomindTechAssessment.debug.xcconfig"; path = "Target Support Files/Pods-ExomindTechAssessment/Pods-ExomindTechAssessment.debug.xcconfig"; sourceTree = "<group>"; };
 		D6E16C655FA33E6A0935C91F /* Pods-ExomindTechAssessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExomindTechAssessment.release.xcconfig"; path = "Target Support Files/Pods-ExomindTechAssessment/Pods-ExomindTechAssessment.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +93,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F0F577625AFB523001ECFA7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F577725AFB52F001ECFA7 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3F0F577725AFB52F001ECFA7 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F577825AFB541001ECFA7 /* UIView.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		3FEB2B5425AC8C3B0000575D = {
 			isa = PBXGroup;
 			children = (
@@ -106,12 +134,13 @@
 		3FEB2B5F25AC8C3B0000575D /* ExomindTechAssessment */ = {
 			isa = PBXGroup;
 			children = (
-				3FEB2B6025AC8C3B0000575D /* AppDelegate.swift */,
-				3FEB2B6225AC8C3B0000575D /* SceneDelegate.swift */,
-				3FEB2B6425AC8C3B0000575D /* ViewController.swift */,
-				3FEB2B6C25AC8C3D0000575D /* Assets.xcassets */,
+				3FEB2BBF25AC994B0000575D /* Helpers */,
+				3FEB2BBE25AC99410000575D /* Models */,
+				3FEB2BBD25AC99370000575D /* Ressources */,
+				3FEB2BC025AC99FA0000575D /* Screens */,
+				3FEB2BBC25AC992D0000575D /* Services */,
+				3FEB2BBB25AC991F0000575D /* Supporting Files */,
 				3FEB2B6E25AC8C3D0000575D /* LaunchScreen.storyboard */,
-				3FEB2B7125AC8C3D0000575D /* Info.plist */,
 				3FEB2B6925AC8C3B0000575D /* ExomindTechAssessment.xcdatamodeld */,
 			);
 			path = ExomindTechAssessment;
@@ -133,6 +162,83 @@
 				3FEB2B8725AC8C3D0000575D /* Info.plist */,
 			);
 			path = ExomindTechAssessmentUITests;
+			sourceTree = "<group>";
+		};
+		3FEB2BBB25AC991F0000575D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FEB2B6025AC8C3B0000575D /* AppDelegate.swift */,
+				3FEB2B6225AC8C3B0000575D /* SceneDelegate.swift */,
+				3FEB2B7125AC8C3D0000575D /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FEB2BBC25AC992D0000575D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3FEB2BD425ADD8660000575D /* API Service */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3FEB2BBD25AC99370000575D /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				3FEB2B6C25AC8C3D0000575D /* Assets.xcassets */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		3FEB2BBE25AC99410000575D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3FEB2BDA25ADD96E0000575D /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3FEB2BBF25AC994B0000575D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3F0F577625AFB523001ECFA7 /* Extensions */,
+				3FEB2BDF25AF16560000575D /* Observers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3FEB2BC025AC99FA0000575D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3FEB2BC125AC9A090000575D /* UsersList Screen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3FEB2BC125AC9A090000575D /* UsersList Screen */ = {
+			isa = PBXGroup;
+			children = (
+				3FEB2BCD25ADD61F0000575D /* SupportingViews */,
+				3FEB2BC825ADD4B70000575D /* UsersListViewController.swift */,
+				3FEB2BCF25ADD7A10000575D /* UsersListViewModel.swift */,
+			);
+			path = "UsersList Screen";
+			sourceTree = "<group>";
+		};
+		3FEB2BCD25ADD61F0000575D /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				3FEB2BEC25AF439F0000575D /* UserCollectionViewCell.swift */,
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
+		3FEB2BD425ADD8660000575D /* API Service */ = {
+			isa = PBXGroup;
+			children = (
+				3FEB2BD525ADD8890000575D /* ApiService.swift */,
+			);
+			path = "API Service";
 			sourceTree = "<group>";
 		};
 		C32DCF5F2B9B96D025678A7E /* Frameworks */ = {
@@ -344,10 +450,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F0F577925AFB541001ECFA7 /* UIView.swift in Sources */,
 				3FEB2B6B25AC8C3B0000575D /* ExomindTechAssessment.xcdatamodeld in Sources */,
-				3FEB2B6525AC8C3B0000575D /* ViewController.swift in Sources */,
+				3FEB2BC925ADD4B70000575D /* UsersListViewController.swift in Sources */,
+				3FEB2BD625ADD8890000575D /* ApiService.swift in Sources */,
 				3FEB2B6125AC8C3B0000575D /* AppDelegate.swift in Sources */,
+				3FEB2BD025ADD7A10000575D /* UsersListViewModel.swift in Sources */,
+				3FEB2BE025AF16560000575D /* Observers.swift in Sources */,
+				3FEB2BED25AF439F0000575D /* UserCollectionViewCell.swift in Sources */,
 				3FEB2B6325AC8C3B0000575D /* SceneDelegate.swift in Sources */,
+				3FEB2BDB25ADD96E0000575D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +630,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BBHWK82463;
-				INFOPLIST_FILE = ExomindTechAssessment/Info.plist;
+				INFOPLIST_FILE = "ExomindTechAssessment/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,7 +650,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BBHWK82463;
-				INFOPLIST_FILE = ExomindTechAssessment/Info.plist;
+				INFOPLIST_FILE = "ExomindTechAssessment/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
