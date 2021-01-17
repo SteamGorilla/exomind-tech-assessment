@@ -11,16 +11,21 @@ import SnapKit
 class UsersListViewController: UIViewController {
 
     // MARK: - UI Elements
-    var usersListCollectionView: UICollectionView?
+    var usersListCollectionView = UICollectionView(withFlowLayout: true)
 
     // MARK: - Properties
     private var viewModel: UsersListViewModel
+    private lazy var filtered: [User] = []
+    private var searchActive: Bool = false
+    private let searchController = UISearchController(searchResultsController: nil)
 
     // MARK: - Initialization
     init(viewModel: UsersListViewModel) {
         self.viewModel = viewModel
-        
         super.init(nibName: nil, bundle: nil)
+
+        setupUI()
+        setupConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -34,27 +39,46 @@ class UsersListViewController: UIViewController {
         setupConstraints()
         setupObservers()
         viewModel.getUsers()
+        filtered = viewModel.users.value
     }
 
     // MARK: - UI setup
     private func setupUI() {
         view.backgroundColor = .white
 
+        // SearchBar
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.delegate = self
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for an user"
+        searchController.searchBar.frame = CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width, height: 60)
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+
+        searchController.searchBar.becomeFirstResponder()
+
+        self.navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.title = "Users"
+
         // Users CollectionView
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
         layout.itemSize = CGSize(width: 120, height: 40)
         layout.scrollDirection = .vertical
 
         usersListCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
 
-        usersListCollectionView?.delegate = self
-        usersListCollectionView?.dataSource = self
-        usersListCollectionView?.backgroundColor = .white
-        usersListCollectionView?.register(UserCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        usersListCollectionView.delegate = self
+        usersListCollectionView.dataSource = self
+        usersListCollectionView.backgroundColor = .white
+        usersListCollectionView.register(UserCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
 
-
-        view.addSubview(usersListCollectionView ?? UICollectionView())
+        view.addSubview(usersListCollectionView)
     }
 
     // MARK: - Constraints setup
@@ -66,9 +90,10 @@ class UsersListViewController: UIViewController {
     private func setupObservers() {
         viewModel.users.bind(self) { [weak self] users in
             print(users)
-            // Le code que tu mettras ici sera executé dès que la ligne:
-            // myData.value = LaDataDuBackEnd
-            // dans le viewModel sera exécutée
+
+            DispatchQueue.main.async {
+                self?.usersListCollectionView.reloadData()
+            }
         }
     }
 }
@@ -78,18 +103,26 @@ extension UsersListViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize(width: 350, height: 140.0)
+        return CGSize(width: 320, height: 160.0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return  20
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
     }
 }
 
 // MARK: - CollectionView DataSource
 extension UsersListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 35
+        if searchActive {
+            return filtered.count
+        } else {
+            return viewModel.users.value.count
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -98,9 +131,54 @@ extension UsersListViewController: UICollectionViewDataSource {
         userCell.layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
         userCell.layer.borderWidth = 1
         userCell.layer.cornerRadius = 15
-
         userCell.setShadow()
+        userCell.isUserInteractionEnabled = true
+
+        if filtered.isEmpty {
+            userCell.userData = viewModel.users.value[indexPath.item]
+        } else {
+            userCell.userData = filtered[indexPath.item]
+        }
 
         return userCell
+    }
+}
+
+// MARK: - SearchBar Results
+extension UsersListViewController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchActive = false
+            self.dismiss(animated: true, completion: nil)
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchString = searchController.searchBar.text else { return }
+        filtered = viewModel.users.value
+
+        if searchString.count >= 2 {
+            filtered = viewModel.users.value.filter({ $0.name.contains(searchString) })
+        }
+
+        usersListCollectionView.reloadData()
+    }
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+        usersListCollectionView.reloadData()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        usersListCollectionView.reloadData()
+    }
+
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        if !searchActive {
+            searchActive = true
+            usersListCollectionView.reloadData()
+        }
+
+        searchController.searchBar.resignFirstResponder()
     }
 }
