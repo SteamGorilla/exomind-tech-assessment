@@ -8,10 +8,10 @@
 import Foundation
 
 class UsersListViewModel {
-    
+
     // MARK: - Properties
     var users: Dynamic<[User]> = Dynamic([])
-    
+
     // MARK: - Initialization
     func getUsers() {
         ApiService.getUsers { (users) in
