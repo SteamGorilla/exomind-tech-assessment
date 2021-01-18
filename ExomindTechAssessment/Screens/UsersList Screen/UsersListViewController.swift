@@ -11,7 +11,7 @@ import SnapKit
 class UsersListViewController: UIViewController {
 
     // MARK: - UI Elements
-    var usersListCollectionView = UICollectionView(withFlowLayout: true)
+    private var usersListCollectionView = UICollectionView(withFlowLayout: true)
 
     // MARK: - Properties
     private var viewModel: UsersListViewModel

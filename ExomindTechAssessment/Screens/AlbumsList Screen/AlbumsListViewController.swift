@@ -12,14 +12,14 @@ import SnapKit
 class AlbumsListViewController: UIViewController {
 
     // MARK: - UI Elements
-    private let id = UILabel()
     var albumsListCollectionView = UICollectionView(withFlowLayout: true)
 
     // MARK: - Properties
     private var viewModel: AlbumsListViewModel
-    var userId: Int
-    var name: String
+    private var userId: Int
+    private var name: String
 
+    // MARK: - Initialization
     init(userId: Int, name: String, viewModel: AlbumsListViewModel) {
         self.userId = userId
         self.name = name
@@ -89,13 +89,20 @@ extension AlbumsListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let albumCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell", for: indexPath) as? AlbumCollectionViewCell else { return UICollectionViewCell() }
         albumCell.backgroundColor = .white
-        albumCell.backgroundColor = .white // generateRandomPastelColor(withMixedColor: .random)
         albumCell.layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
         albumCell.layer.borderWidth = 1
         albumCell.layer.cornerRadius = 15
         albumCell.setShadow()
+        
         albumCell.albumData = viewModel.albums.value[indexPath.item]
+        
         return albumCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photosViewModel = PhotosListViewModel()
+        self.navigationController?.pushViewController(PhotosListViewController(albumId: viewModel.albums.value[indexPath.item].id,
+                                                                               viewModel: photosViewModel), animated: true)
     }
 }
 

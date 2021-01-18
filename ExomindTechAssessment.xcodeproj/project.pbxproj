@@ -13,6 +13,10 @@
 		3F7B44BF25B4F997000E7B7D /* AlbumsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7B44BE25B4F997000E7B7D /* AlbumsListViewController.swift */; };
 		3F7B44C425B580D4000E7B7D /* AlbumsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7B44C325B580D4000E7B7D /* AlbumsListViewModel.swift */; };
 		3F7B44D525B58D5B000E7B7D /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7B44D425B58D5B000E7B7D /* AlbumCollectionViewCell.swift */; };
+		3F7B44E925B5DE6D000E7B7D /* PhotosListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7B44E825B5DE6D000E7B7D /* PhotosListViewController.swift */; };
+		3F7B44F125B5E254000E7B7D /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7B44F025B5E254000E7B7D /* Photo.swift */; };
+		3F7B44F625B5E838000E7B7D /* PhotosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7B44F525B5E838000E7B7D /* PhotosListViewModel.swift */; };
+		3F7B44FC25B6377A000E7B7D /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7B44FB25B6377A000E7B7D /* PhotosCollectionViewCell.swift */; };
 		3FEB2B6125AC8C3B0000575D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B6025AC8C3B0000575D /* AppDelegate.swift */; };
 		3FEB2B6325AC8C3B0000575D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B6225AC8C3B0000575D /* SceneDelegate.swift */; };
 		3FEB2B6B25AC8C3B0000575D /* ExomindTechAssessment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FEB2B6925AC8C3B0000575D /* ExomindTechAssessment.xcdatamodeld */; };
@@ -53,6 +57,10 @@
 		3F7B44BE25B4F997000E7B7D /* AlbumsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsListViewController.swift; sourceTree = "<group>"; };
 		3F7B44C325B580D4000E7B7D /* AlbumsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsListViewModel.swift; sourceTree = "<group>"; };
 		3F7B44D425B58D5B000E7B7D /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		3F7B44E825B5DE6D000E7B7D /* PhotosListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewController.swift; sourceTree = "<group>"; };
+		3F7B44F025B5E254000E7B7D /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		3F7B44F525B5E838000E7B7D /* PhotosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModel.swift; sourceTree = "<group>"; };
+		3F7B44FB25B6377A000E7B7D /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		3FEB2B5D25AC8C3B0000575D /* ExomindTechAssessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExomindTechAssessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FEB2B6025AC8C3B0000575D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FEB2B6225AC8C3B0000575D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +142,24 @@
 			isa = PBXGroup;
 			children = (
 				3F7B44D425B58D5B000E7B7D /* AlbumCollectionViewCell.swift */,
+			);
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		3F7B44E725B5DDE0000E7B7D /* PhotosListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3F7B44FA25B6374B000E7B7D /* Supporting Views */,
+				3F7B44E825B5DE6D000E7B7D /* PhotosListViewController.swift */,
+				3F7B44F525B5E838000E7B7D /* PhotosListViewModel.swift */,
+			);
+			path = PhotosListScreen;
+			sourceTree = "<group>";
+		};
+		3F7B44FA25B6374B000E7B7D /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F7B44FB25B6377A000E7B7D /* PhotosCollectionViewCell.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -224,6 +250,7 @@
 			children = (
 				3FEB2BDA25ADD96E0000575D /* User.swift */,
 				3F0F578E25B4F1C8001ECFA7 /* Album.swift */,
+				3F7B44F025B5E254000E7B7D /* Photo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,6 +267,7 @@
 		3FEB2BC025AC99FA0000575D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3F7B44E725B5DDE0000E7B7D /* PhotosListScreen */,
 				3F7B44BD25B4F940000E7B7D /* AlbumsList Screen */,
 				3FEB2BC125AC9A090000575D /* UsersList Screen */,
 			);
@@ -482,19 +510,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0F577925AFB541001ECFA7 /* UIView.swift in Sources */,
+				3F7B44E925B5DE6D000E7B7D /* PhotosListViewController.swift in Sources */,
 				3FEB2B6B25AC8C3B0000575D /* ExomindTechAssessment.xcdatamodeld in Sources */,
 				3F7B44C425B580D4000E7B7D /* AlbumsListViewModel.swift in Sources */,
 				3FEB2BC925ADD4B70000575D /* UsersListViewController.swift in Sources */,
+				3F7B44F625B5E838000E7B7D /* PhotosListViewModel.swift in Sources */,
 				3FEB2BD625ADD8890000575D /* ApiService.swift in Sources */,
 				3F7B44BF25B4F997000E7B7D /* AlbumsListViewController.swift in Sources */,
 				3FEB2B6125AC8C3B0000575D /* AppDelegate.swift in Sources */,
 				3FEB2BD025ADD7A10000575D /* UsersListViewModel.swift in Sources */,
 				3FEB2BE025AF16560000575D /* Observers.swift in Sources */,
+				3F7B44F125B5E254000E7B7D /* Photo.swift in Sources */,
 				3F7B44D525B58D5B000E7B7D /* AlbumCollectionViewCell.swift in Sources */,
 				3FEB2BED25AF439F0000575D /* UserCollectionViewCell.swift in Sources */,
 				3FEB2B6325AC8C3B0000575D /* SceneDelegate.swift in Sources */,
 				3F0F578A25B0887D001ECFA7 /* UICollectionView.swift in Sources */,
 				3FEB2BDB25ADD96E0000575D /* User.swift in Sources */,
+				3F7B44FC25B6377A000E7B7D /* PhotosCollectionViewCell.swift in Sources */,
 				3F0F578F25B4F1C9001ECFA7 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
