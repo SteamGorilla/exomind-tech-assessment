@@ -25,4 +25,21 @@ class ApiService {
         }
         task.resume()
     }
+
+    static func getAlbums(with userId: Int, completion: @escaping ([Album]) -> Void) {
+       let albumsURL = URL(string: "https://jsonplaceholder.typicode.com/users/\(userId)/albums")
+
+       let task = URLSession.shared.dataTask(with: albumsURL!) { (data, _, error) in
+            if let data = data {
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let albumsData = try jsonDecoder.decode([Album].self, from: data)
+                    completion(albumsData)
+                } catch {
+                    fatalError(error.localizedDescription)
+                }
+            }
+        }
+        task.resume()
+    }
 }

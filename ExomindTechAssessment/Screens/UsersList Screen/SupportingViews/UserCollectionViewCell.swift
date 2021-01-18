@@ -12,7 +12,7 @@ import SnapKit
 class UserCollectionViewCell: UICollectionViewCell {
 
     // MARK: - UI Elements
-    let fullName = UILabel()
+    private let fullName = UILabel()
     private let username = UILabel()
     private let email = UILabel()
     private let phoneNumber = UILabel()
@@ -30,7 +30,6 @@ class UserCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
 
-        // self.userID = userID
         setupUI()
         setupConstraints()
     }
@@ -41,9 +40,9 @@ class UserCollectionViewCell: UICollectionViewCell {
 
     // MARK: - UI Setup
     private func setupUI() {
+        self.isUserInteractionEnabled = true
 
         // Full Name Label
-        // fullName.text = "John Doe"
         fullName.font = UIFont(name: "HelveticaNeue-Bold", size: 22.0)
         fullName.textColor = .black
         fullName.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +51,6 @@ class UserCollectionViewCell: UICollectionViewCell {
         self.addSubview(fullName)
 
         // Username Label
-        // username.text = "j.doe"
         username.font = UIFont(name: "HelveticaNeue-Light", size: 16.0)
         username.textColor = .black
         username.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +59,6 @@ class UserCollectionViewCell: UICollectionViewCell {
         self.addSubview(username)
 
         // Email Label
-        // email.text = "j.doe@icloud.com"
         email.font = UIFont(name: "HelveticaNeue", size: 16.0)
         email.textColor = .black
         email.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +67,6 @@ class UserCollectionViewCell: UICollectionViewCell {
         self.addSubview(email)
 
         // Phone Number Label
-        // phoneNumber.text = "010-692-6593 x09125"
         phoneNumber.font = UIFont(name: "HelveticaNeue", size: 16.0)
         phoneNumber.textColor = .black
         phoneNumber.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +75,6 @@ class UserCollectionViewCell: UICollectionViewCell {
         self.addSubview(phoneNumber)
 
         // Website Label
-        // website.text = "hildegard.org"
         website.font = UIFont(name: "HelveticaNeue", size: 16.0)
         website.textColor = .black
         website.translatesAutoresizingMaskIntoConstraints = false
