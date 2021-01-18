@@ -23,9 +23,6 @@ class UsersListViewController: UIViewController {
     init(viewModel: UsersListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-
-        setupUI()
-        setupConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -68,7 +65,6 @@ class UsersListViewController: UIViewController {
         // Users CollectionView
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
-        layout.itemSize = CGSize(width: 120, height: 40)
         layout.scrollDirection = .vertical
 
         usersListCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
@@ -76,7 +72,7 @@ class UsersListViewController: UIViewController {
         usersListCollectionView.delegate = self
         usersListCollectionView.dataSource = self
         usersListCollectionView.backgroundColor = .white
-        usersListCollectionView.register(UserCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        usersListCollectionView.register(UserCollectionViewCell.self, forCellWithReuseIdentifier: "UserCollectionViewCell")
 
         view.addSubview(usersListCollectionView)
     }
@@ -98,23 +94,6 @@ class UsersListViewController: UIViewController {
     }
 }
 
-// MARK: - CollectionView Layout
-extension UsersListViewController: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return CGSize(width: 320, height: 160.0)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return  20
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-    }
-}
-
 // MARK: - CollectionView DataSource
 extension UsersListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -126,13 +105,12 @@ extension UsersListViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let userCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? UserCollectionViewCell else { return UICollectionViewCell() }
-        userCell.backgroundColor = UIColor.white
+        guard let userCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as? UserCollectionViewCell else { return UICollectionViewCell() }
+        userCell.backgroundColor = .white
         userCell.layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
         userCell.layer.borderWidth = 1
         userCell.layer.cornerRadius = 15
         userCell.setShadow()
-        userCell.isUserInteractionEnabled = true
 
         if filtered.isEmpty {
             userCell.userData = viewModel.users.value[indexPath.item]
@@ -141,6 +119,32 @@ extension UsersListViewController: UICollectionViewDataSource {
         }
 
         return userCell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let albumsViewModel = AlbumsListViewModel()
+
+        if filtered.isEmpty {
+            self.navigationController?.pushViewController(AlbumsListViewController(userId: viewModel.users.value[indexPath.item].id,
+                                                                                   name: viewModel.users.value[indexPath.item].name,
+                                                                                   viewModel: albumsViewModel), animated: true)
+        } else {
+            self.navigationController?.pushViewController(AlbumsListViewController(userId: filtered[indexPath.item].id,
+                                                                                   name: filtered[indexPath.item].name,
+                                                                                   viewModel: albumsViewModel), animated: true)
+        }
+    }
+}
+
+// MARK: - CollectionView Layout
+extension UsersListViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 320, height: 160.0)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return  20
     }
 }
 
