@@ -42,4 +42,21 @@ class ApiService {
         }
         task.resume()
     }
+
+    static func getPhotos(with albumId: Int, completion: @escaping ([Photo]) -> Void) {
+        let photosURL = URL(string: "https://jsonplaceholder.typicode.com/users/1/photos?albumId=\(albumId)")
+
+        let task = URLSession.shared.dataTask(with: photosURL!) { (data, _, error) in
+            if let data = data {
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let photosData = try jsonDecoder.decode([Photo].self, from: data)
+                    completion(photosData)
+                } catch {
+                    fatalError(error.localizedDescription)
+                }
+            }
+        }
+        task.resume()
+    }
 }
