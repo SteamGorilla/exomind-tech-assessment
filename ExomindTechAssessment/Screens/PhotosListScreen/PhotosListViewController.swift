@@ -97,6 +97,22 @@ extension PhotosListViewController: UICollectionViewDataSource {
 
         return photoCell
     }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? PhotosCollectionViewCell else { return }
+        let itemNumber = NSNumber(value: indexPath.item)
+
+        if let cachedImage = self.viewModel.cache.object(forKey: itemNumber) {
+            print("Using a cached image for item: \(itemNumber)")
+                cell.thumbnailImage.image = cachedImage
+            } else {
+                self.viewModel.loadImage(with: self.viewModel.photos.value[indexPath.item].thumbnailUrl) { [weak self] (image) in
+                    guard let self = self, let image = image else { return }
+                    cell.thumbnailImage.image = image
+                    self.viewModel.cache.setObject(image, forKey: itemNumber)
+                }
+            }
+    }
 }
 
 // MARK: - CollectionView Layout

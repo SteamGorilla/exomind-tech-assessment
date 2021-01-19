@@ -12,18 +12,16 @@ import SnapKit
 class PhotosCollectionViewCell: UICollectionViewCell {
 
     // MARK: - UI Elements
-    private var thumbnailImage = UIImageView()
-    private var plainImage = UIImageView()
+    var thumbnailImage = UIImageView()
 
     // MARK: - Properties
+    var thumbnailUrl = String()
+
     var photoData: Photo? {
         didSet {
             setupCellDatas(from: photoData!)
         }
     }
-
-    var thumbnailUrl = String()
-    var plainUrl = String()
 
     // MARK: - Initialization
     override init(frame: CGRect) {
@@ -37,14 +35,19 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - UI Setup
-    private func setupUI() {
-        self.addSubview(thumbnailImage)
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        self.thumbnailImage.image = nil
     }
 
-    override func layoutSubviews() {
+    // MARK: - UI Setup
+    private func setupUI() {
+        thumbnailImage.contentMode = .scaleAspectFit
         thumbnailImage.layer.cornerRadius = 15
         thumbnailImage.clipsToBounds = true
+        thumbnailImage.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(thumbnailImage)
     }
 
     // MARK: - Constraints Setup
@@ -57,21 +60,6 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     // MARK: - Data Setup
     private func setupCellDatas(from data: Photo) {
         thumbnailUrl = data.thumbnailUrl
-        plainUrl = data.url
-
-        imageDownloading()
-    }
-
-    func imageDownloading() {
-        let url = URL(string: self.thumbnailUrl)!
-        do {
-            let data = try Data(contentsOf: url)
-            DispatchQueue.main.async {
-            self.thumbnailImage.image = UIImage(data: data)
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
     }
 }
 
