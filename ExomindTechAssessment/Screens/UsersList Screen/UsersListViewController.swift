@@ -35,7 +35,13 @@ class UsersListViewController: UIViewController {
         setupUI()
         setupConstraints()
         setupObservers()
-        viewModel.getUsers()
+
+        if UserDefaults.standard.data(forKey: "users") != nil {
+            viewModel.setStoredUsers()
+        } else {
+            viewModel.getUsers()
+        }
+
         filtered = viewModel.users.value
     }
 
