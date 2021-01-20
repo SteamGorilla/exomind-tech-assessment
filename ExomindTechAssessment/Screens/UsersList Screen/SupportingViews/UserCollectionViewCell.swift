@@ -86,28 +86,28 @@ class UserCollectionViewCell: UICollectionViewCell {
     // MARK: - Constraints Setup
     private func setupConstraints() {
         fullName.snp.makeConstraints {
-            $0.top.equalTo(18.0)
-            $0.left.equalTo(15.0)
+            $0.top.equalTo(Layout.top)
+            $0.left.equalTo(Layout.left)
         }
 
         username.snp.makeConstraints {
-            $0.top.equalTo(fullName.snp.bottom).offset(5.0)
-            $0.left.equalTo(15.0)
+            $0.top.equalTo(fullName.snp.bottom).offset(Layout.offset)
+            $0.left.equalTo(Layout.left)
         }
 
         email.snp.makeConstraints {
-            $0.top.equalTo(username.snp.bottom).offset(5.0)
-            $0.left.equalTo(15.0)
+            $0.top.equalTo(username.snp.bottom).offset(Layout.offset)
+            $0.left.equalTo(Layout.left)
         }
 
         phoneNumber.snp.makeConstraints {
-            $0.top.equalTo(email.snp.bottom).offset(5.0)
-            $0.left.equalTo(15.0)
+            $0.top.equalTo(email.snp.bottom).offset(Layout.offset)
+            $0.left.equalTo(Layout.left)
         }
 
         website.snp.makeConstraints {
-            $0.top.equalTo(phoneNumber.snp.bottom).offset(5.0)
-            $0.left.equalTo(15.0)
+            $0.top.equalTo(phoneNumber.snp.bottom).offset(Layout.offset)
+            $0.left.equalTo(Layout.left)
         }
     }
 
@@ -119,5 +119,14 @@ class UserCollectionViewCell: UICollectionViewCell {
         email.text = data.email.lowercased()
         phoneNumber.text = data.phone
         website.text = data.website
+    }
+}
+
+extension UserCollectionViewCell {
+
+    enum Layout {
+        static let top: CGFloat = 18.0
+        static let left: CGFloat = 15.0
+        static let offset: CGFloat = 5.0
     }
 }

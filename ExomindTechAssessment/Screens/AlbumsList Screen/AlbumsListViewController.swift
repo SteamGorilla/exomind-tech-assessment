@@ -53,7 +53,7 @@ class AlbumsListViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         layout.scrollDirection = .vertical
 
-        albumsListCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        albumsListCollectionView.setCollectionViewLayout(layout, animated: true)
 
         albumsListCollectionView.delegate = self
         albumsListCollectionView.dataSource = self
@@ -65,7 +65,9 @@ class AlbumsListViewController: UIViewController {
 
     // MARK: - Constraints setup
     private func setupConstraints() {
-
+        albumsListCollectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 
     // MARK: - Observers setup
@@ -85,7 +87,7 @@ extension AlbumsListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.albums.value.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let albumCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollectionViewCell", for: indexPath) as? AlbumCollectionViewCell else { return UICollectionViewCell() }
         albumCell.backgroundColor = .white
@@ -93,9 +95,9 @@ extension AlbumsListViewController: UICollectionViewDataSource {
         albumCell.layer.borderWidth = 1
         albumCell.layer.cornerRadius = 15
         albumCell.setShadow()
-        
+
         albumCell.albumData = viewModel.albums.value[indexPath.item]
-        
+
         return albumCell
     }
 

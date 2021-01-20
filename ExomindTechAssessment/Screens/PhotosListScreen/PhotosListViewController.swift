@@ -51,7 +51,7 @@ class PhotosListViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         layout.scrollDirection = .vertical
 
-        photosListCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        photosListCollectionView.setCollectionViewLayout(layout, animated: true)
 
         photosListCollectionView.delegate = self
         photosListCollectionView.dataSource = self
@@ -63,7 +63,9 @@ class PhotosListViewController: UIViewController {
 
     // MARK: - Constraints setup
     private func setupConstraints() {
-        //
+        photosListCollectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 
     // MARK: - Observers setup

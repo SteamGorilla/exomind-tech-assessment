@@ -73,7 +73,7 @@ class UsersListViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 10, right: 20)
         layout.scrollDirection = .vertical
 
-        usersListCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        usersListCollectionView.setCollectionViewLayout(layout, animated: true)
 
         usersListCollectionView.delegate = self
         usersListCollectionView.dataSource = self
@@ -85,7 +85,9 @@ class UsersListViewController: UIViewController {
 
     // MARK: - Constraints setup
     private func setupConstraints() {
-
+        usersListCollectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 
     // MARK: - Observers setup

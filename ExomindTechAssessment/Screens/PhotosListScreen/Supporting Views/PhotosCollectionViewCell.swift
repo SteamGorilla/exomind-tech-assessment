@@ -62,4 +62,3 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         thumbnailUrl = data.thumbnailUrl
     }
 }
-

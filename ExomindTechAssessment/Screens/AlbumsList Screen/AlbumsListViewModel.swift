@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AlbumsListViewModel  {
+class AlbumsListViewModel {
 
     // MARK: - Properties
     var albums: Dynamic<[Album]> = Dynamic([])
